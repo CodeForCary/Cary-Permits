@@ -1,0 +1,451 @@
+<!--
+
+(c) 1999-2004 SunGard HTE, Inc.
+
+ The software and any written documentation associated therewith are
+ protected under the Copyright Laws of the United States.  SunGard
+ HTE warrants and Customer acknowledges that SunGard HTE has the
+ following exclusive rights with regard to the Licensed Program(s):
+
+  To reproduce the Licensed Program(s) in any or all forms.
+  To adapt, transform or rearrange the Licensed Program(s).
+  To prepare other products derivative of the Licensed Program(s).
+  To control the distribution of the Licensed Program(s).
+
+ Customer agrees not to violate any of SunGard HTE's rights or to
+ assist or aid others in doing so. Customer agrees to preserve all
+ copyright and other notices in the Licensed Program(s) and written
+ documentation.
+
+-->
+<html>
+<head>
+
+
+
+
+
+
+
+ 
+
+
+
+
+<title>Building Permits Town of Cary</title>
+
+<script type="text/javaScript">
+<!--
+
+  var isNN = (navigator.appName.indexOf("Netscape")!=-1);
+
+  function autoTab(input,len, e)
+  {
+    var keyCode = (isNN) ? e.which : e.keyCode;
+    var filter  = (isNN) ? [0,8,9] : [0,8,9,16,17,18,37,38,39,40,46];
+
+    if(input.value.length >= len && !containsElement(filter,keyCode))
+    {
+      input.value = input.value.slice(0, len);
+      input.form[(getIndex(input)+1) % input.form.length].focus();
+    }
+
+    function containsElement(arr, ele)
+    {
+      var found = false;
+      var index = 0;
+
+      while(!found && index < arr.length)
+      {
+        if(arr[index] == ele)
+        {
+          found = true;
+        }
+        else
+        {
+          index++;
+        }
+      }
+      return found;
+    }
+
+    function getIndex(input)
+    {
+      var index = -1, i = 0, found = false;
+      while(i < input.form.length && index == -1)
+      {
+        if(input.form[i] == input)
+        {
+          index = i;
+        }
+        else
+        {
+          i++;
+        }
+      }
+      return index;
+    }
+    return true;
+  }
+
+//-->
+</script>
+<script type="text/javascript">
+<!--
+
+  function checkRequired()
+  {
+    var j         = 0;
+    var frm       = document.StatusCheck;
+    var pass      = true;
+    var errmsg    = "";
+    var appYear   = frm.ApplicationYear.value;
+    var appNumber = frm.ApplicationNumber.value;
+
+    if((appYear == "") || (appNumber == ""))
+    {
+      pass    = false;
+      errmsg += ++j + ".  Please fill in the full Application Number.\n";
+    }
+    
+    if(!(/^[0-9]{1,}$/.test(appYear)) || !(/^[0-9]{1,}$/.test(appNumber)))
+    {
+      //THIS MAKES SURE THE USER ENTERS A NUMERIC APP NUMBER.
+      errmsg += ++j + ".  Use numbers (0-9) only for your Application Number.\n";
+      pass = false;
+    }
+
+    if(!pass)
+    {
+      alert(errmsg);
+      return false;
+    }
+    else
+    {
+      errmsg = "";
+      return true;
+    }
+  }
+
+//-->
+</script>
+</head>
+<body bgcolor="#FFFFFF" onload="document.StatusCheck.ApplicationYear.focus();" background="./img/Page/SelectPermit.gif">
+<form name="StatusCheck" onsubmit="return checkRequired()" action="./Validate.jsp" method="post">
+	<input type="hidden" name="FunctionCode" value="I" />
+	<input type="hidden" name="errorJspPage" value="SelectPermit" />
+	<input type="hidden" name="jspPage" value="StatusOptions" />
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="left">
+        <table width="683" border="0" cellspacing="0" cellpadding="0" >
+          <tr>
+            <td align="left" valign="top" nowrap>
+              <!-- CREATE LOGO AND BANNER -->
+              <table width="100%" border="0" bordercolor="#000000" bgcolor="#FFFFFF" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top" align="right" width="137"><a href="http://www.townofcary.org/Departments/Inspections___Permits.htm" alt="Town of Cary"><img src="./img/Header/LOGOIMAG.gif" border="0" /></a></td>
+    <td valign="top" align="left" width="546"><img src="./img/Header/BANNIMAG.gif" border="0" /></td>
+  </tr>
+</table>
+            </td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" nowrap>
+              <table width="100%" height="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="137" valign="top" align="right" bgcolor="#FFFFFF">
+                    <!-- CREATE BUTTON TABLE -->
+                    <script type="text/javascript">
+<!--
+
+  if (document.images)
+  {
+    UserDefined1on      = new Image();
+    UserDefined1on.src  = "./img/Menu/USRDF1MOU.gif";
+    UserDefined1off     = new Image();
+    UserDefined1off.src = "./img/Menu/USRDF1NOR.gif";
+
+    UserDefined2on      = new Image();
+    UserDefined2on.src  = "./img/Menu/USRDF2MOU.gif";
+    UserDefined2off     = new Image();
+    UserDefined2off.src = "./img/Menu/USRDF2NOR.gif";
+
+    SubmitApplicationon      = new Image();
+    SubmitApplicationon.src  = "./img/Menu/SUBMTMOU.gif";
+    SubmitApplicationoff     = new Image();
+    SubmitApplicationoff.src = "./img/Menu/SUBMTNOR.gif";
+
+    GetAccton      = new Image();
+    GetAccton.src  = "./img/Menu/GETACCTMOU.gif";
+    GetAcctoff     = new Image();
+    GetAcctoff.src = "./img/Menu/GETACCTNOR.gif";
+    
+    GetAcctAddon      = new Image();
+    GetAcctAddon.src  = "./img/Menu/GETACCTADDMOU.gif";
+    GetAcctAddoff     = new Image();
+    GetAcctAddoff.src = "./img/Menu/GETACCTADDNOR.gif";
+
+    CheckStatuson      = new Image();
+    CheckStatuson.src  = "./img/Menu/CHECKMOU.gif";
+    CheckStatusoff     = new Image();
+    CheckStatusoff.src = "./img/Menu/CHECKNOR.gif";
+
+    ApplicationFeeson      = new Image();
+    ApplicationFeeson.src  = "./img/Menu/ViewAppMOU.gif";
+    ApplicationFeesoff     = new Image();
+    ApplicationFeesoff.src = "./img/Menu/ViewAppNOR.gif";
+
+    PermitStatuson      = new Image();
+    PermitStatuson.src  = "./img/Menu/PermitMOU.gif";
+    PermitStatusoff     = new Image();
+    PermitStatusoff.src = "./img/Menu/PermitNOR.gif";
+
+    InspectionStatuson      = new Image();
+    InspectionStatuson.src  = "./img/Menu/InspectionMOU.gif";
+    InspectionStatusoff     = new Image();
+    InspectionStatusoff.src = "./img/Menu/InspectionNOR.gif";
+
+    PlanTrackingon      = new Image();
+    PlanTrackingon.src  = "./img/Menu/PlanTrackingMOU.gif";
+    PlanTrackingoff     = new Image();
+    PlanTrackingoff.src = "./img/Menu/PlanTrackingNOR.gif";
+
+    ScheduleInspectionson      = new Image();
+    ScheduleInspectionson.src  = "./img/Menu/SCHEDMOU.gif";
+    ScheduleInspectionsoff     = new Image();
+    ScheduleInspectionsoff.src = "./img/Menu/SCHEDNOR.gif";
+
+    ChangePinson      = new Image();
+    ChangePinson.src  = "./img/Menu/ChangePinMOU.gif";
+    ChangePinsoff     = new Image();
+    ChangePinsoff.src = "./img/Menu/ChangePinNOR.gif";
+
+    UserDefined3on      = new Image();
+    UserDefined3on.src  = "./img/Menu/USRDF3MOU.gif";
+    UserDefined3off     = new Image();
+    UserDefined3off.src = "./img/Menu/USRDF3NOR.gif";
+
+    UserDefined4on      = new Image();
+    UserDefined4on.src  = "./img/Menu/USRDF4MOU.gif";
+    UserDefined4off     = new Image();
+    UserDefined4off.src = "./img/Menu/USRDF4NOR.gif";
+
+    Logoffon      = new Image();
+    Logoffon.src  = "./img/Menu/LOGEXMOU.gif";
+    Logoffoff     = new Image();
+    Logoffoff.src = "./img/Menu/LOGEXNOR.gif";
+
+    PRINSon      = new Image();
+    PRINSon.src  = "./img/Menu/PRINSMOU.gif";
+    PRINSoff     = new Image();
+    PRINSoff.src = "./img/Menu/PRINSNOR.gif";
+
+    ContractorLoginon      = new Image();
+    ContractorLoginon.src  = "./img/Menu/CONLOMOU.gif";
+    ContractorLoginoff     = new Image();
+    ContractorLoginoff.src = "./img/Menu/CONLONOR.gif";
+
+    CreateMasterAccounton      = new Image();
+    CreateMasterAccounton.src  = "./img/Menu/CRTCONSMOU.gif";
+    CreateMasterAccountoff     = new Image();
+    CreateMasterAccountoff.src = "./img/Menu/CRTCONSNOR.gif";
+
+    ForgotPinon      = new Image();
+    ForgotPinon.src  = "./img/Menu/PINFGMOU.gif";
+    ForgotPinoff     = new Image();
+    ForgotPinoff.src = "./img/Menu/PINFGNOR.gif";
+    
+    ForgotUserIdon      = new Image();
+    ForgotUserIdon.src  = "./img/Menu/FORGOTUSERNAMEMOU.gif";
+    ForgotUserIdoff     = new Image();
+    ForgotUserIdoff.src = "./img/Menu/FORGOTUSERNAMENOR.gif";
+
+    ContractorLogouton      = new Image();
+    ContractorLogouton.src  = "./img/Menu/LOGEXMOU.gif";
+    ContractorLogoutoff     = new Image();
+    ContractorLogoutoff.src = "./img/Menu/LOGEXNOR.gif";    
+
+    SelectAccountson      = new Image();
+    SelectAccountson.src  = "./img/Menu/SELACCTMOU.gif";
+    SelectAccountsoff     = new Image();
+    SelectAccountsoff.src = "./img/Menu/SELACCTNOR.gif";
+    
+    
+    ElectronicPlanon      = new Image();
+    ElectronicPlanon.src  = "./img/Menu/ElectronicPlanMOU.gif";
+    ElectronicPlanoff     = new Image();
+    ElectronicPlanoff.src = "./img/Menu/ElectronicPlanNOR.gif";
+  }
+
+  function imgOn(imgName)
+  {
+    if (document.images)
+    {
+      document[imgName].src = eval(imgName + "on.src");
+    }
+  }
+
+  function imgOff(imgName)
+  {
+    if (document.images)
+    {
+      document[imgName].src = eval(imgName + "off.src");
+    }
+  }
+
+//-->
+</script>
+<table width="100%" height="100%" bordercolor="#000000" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" cellspacing="0" cellpadding="0">
+        
+        <tr align="center" >
+          <td valign="top" align="center"><img src="./img/Menu/MENUHEAD.gif" border="0" /></td>
+        </tr>
+        
+        <tr align="center" valign="top">
+          <td align="center"><a href="Index.jsp" target="_self" onmouseover="imgOn('UserDefined1')" onmouseout="imgOff('UserDefined1')"><img src="./img/Menu/USRDF1NOR.gif" alt="Home" name="UserDefined1" border="0" /></a></td>
+        </tr>
+        
+        <tr>
+          <td align="center" valign="top"><a href="SelectPermit.jsp"><img src="./img/Menu/GETACCTCUR.gif" alt="Select Permit" name="GetAcct" border="0" /></a></td>
+        </tr>
+        
+        <tr>
+          <td align="center" valign="top"><a href="SelectPermitAdd.jsp" onmouseover="imgOn('GetAcctAdd')" onmouseout="imgOff('GetAcctAdd')"><img src="./img/Menu/GETACCTADDNOR.gif" alt="Select Permit by Address" name="GetAcctAdd" border="0" /></a></td>
+        </tr>
+        
+        <tr>
+          <td align="center" valign="top"><a href="ScheduleInfo.jsp" onmouseover="imgOn('ScheduleInspections')" onmouseout="imgOff('ScheduleInspections')"><img src="./img/Menu/SCHEDNOR.gif" alt="Schedule Inspections" name="ScheduleInspections" border="0" /></a></td>
+        </tr>
+        
+        <tr>
+          <td align="center" valign="top"><a href="SubmitApplication.jsp" onmouseover="imgOn('SubmitApplication')" onmouseout="imgOff('SubmitApplication')"><img src="./img/Menu/SUBMTNOR.gif" alt="Submit Applications" name="SubmitApplication" border="0" /></a></td>
+        </tr>
+        
+        <tr>
+          <td align="center" valign="top"><a href="ContractorLogin.jsp" onmouseover="imgOn('ContractorLogin')" onmouseout="imgOff('ContractorLogin')"><img src="./img/Menu/CONLONOR.gif" alt="Master Account Login" name="ContractorLogin" border="0" /></a></td>
+        </tr>
+        
+        <tr>
+          <td align="center" valign="top"><a href="ContractorReg.jsp" onmouseover="imgOn('CreateMasterAccount')" onmouseout="imgOff('CreateMasterAccount')"><img src="./img/Menu/CRTCONSNOR.gif" alt="Create Master Account" name="CreateMasterAccount" border="0" /></a></td>
+        </tr>
+        
+        <tr>
+          <td align="center" valign="top"><a href="ContractorForgotPin.jsp" onmouseover="imgOn('ForgotPin')" onmouseout="imgOff('ForgotPin')"><img src="./img/Menu/PINFGNOR.gif" alt="Forgot PIN?" name="ForgotPin" border="0" /></a></td>
+        </tr>
+        
+        <tr>
+          <td align="center" valign="top"><a href="ContractorForgotUserId.jsp" onmouseover="imgOn('ForgotUserId')" onmouseout="imgOff('ForgotUserId')"><img src="./img/Menu/FORGOTUSERNAMENOR.gif" alt="Forgot User Name?" name="ForgotUserId" border="0" /></a></td>
+        </tr>
+         
+        <tr align="center" valign="top">
+          <td align="center"><a href="mailto:click2govbp.support@townofcary.org" target="_blank" onmouseover="imgOn('UserDefined3')" onmouseout="imgOff('UserDefined3')"><img src="./img/Menu/USRDF3NOR.gif" alt="Email Us" name="UserDefined3" border="0" /></a></td>
+        </tr>
+        
+        <tr align="center" valign="top">
+          <td align="center"><img src="./img/Menu/MENUFOOT.gif" border="0" /></td>
+        </tr>
+        
+      </table>
+    </td>
+  </tr>
+</table>
+                  </td>
+                  <td width="546" align="center" bgcolor="#FFFFFF" valign="top">
+                    <table width="100%" border="0" bordercolor="#000000" cellspacing="0" cellpadding="0" align="center" height="100%">
+                      <tr>
+                        <td height="100%" valign="top">
+                          <table width="95%" border="0" cellspacing="0" cellpadding="1">
+                            <tr>
+                              <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td align="left" valign="left"><font face="Arial" color="#000000" size="+1" style="font-weight:bold">Select Permit</font></td>
+                            </tr>
+                            <tr>
+                              <td>&nbsp;</td>
+                            </tr>
+                          </table>
+                          <table width="95%" border="0" cellspacing="0" cellpadding="0" align="left">
+                            
+                            <tr>
+                              <td>&nbsp;</td>
+                              <td align="center" colspan="3"><font face="Arial" color="#FF0001" size="-1" style="font-weight:normal">Invalid application number                                  . Please try again.</font></td>
+                              <td>&nbsp;</td>
+                            </tr>
+                            
+                            <tr>
+                              <td>&nbsp;</td>
+                              <td align="right" width="35%" nowrap><font face="Arial" color="#000000" size="-1" style="font-weight:bold">Application Number:</font></td>
+                              <td>&nbsp;</td>
+                              <td>
+                                <font face="Arial" color="#000000" size="-1" style="font-weight:normal">
+                                  <input type="text" name="ApplicationYear" size="2" maxlength="2" value="" onkeyup="return autoTab(this, 2, event);" /> - <input type="text" name="ApplicationNumber" size="10" maxlength="8" value="" />
+                                </font>
+                              </td>
+                              <td>&nbsp;</td>
+                            </tr>
+                            
+                            <tr>
+                              <td colspan="5">&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td colspan="3">&nbsp;</td>
+                                <td align="left">
+                                  <font face="Arial" color="#000000" size="-1" style="font-weight:normal">
+                                    <input type="image" src="./img/Content/submit.gif" alt="Submit"   name="Submit" />
+                                  </font>
+                                </td>
+                              <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td colspan="5">&nbsp;</td>
+                            </tr>
+                            
+                            <tr>
+                              <td>&nbsp;</td>
+                              <td colspan="3" align="left">
+                                <font face="Arial" color="#000000" size="-1" style="font-weight:normal">
+                                  <!-- -->&nbsp;
+                                </font>
+                              </td>
+                              <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td colspan="5">&nbsp;</td>
+                            </tr>
+                            
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <!-- OPTIONAL PAGE -->
+                  
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <!-- FOOTER -->
+              <table width="100%" bgcolor="#FFFFFF" border="0" bordercolor="#000000" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="left"><img src="./img/Footer/left.gif" height="55" /></td>
+    <td align="center"><img src="./img/Footer/footerImg.gif" /></td>
+    <td align="center"><a href="=http://www.townofcary.org/Departments/Inspections___Permits.htm" alt="Click2Gov Home"><img src="./img/Footer/linkImg.gif" border="0" /></a></td>
+    <td align="right"><img src="./img/Footer/right.gif" height="55" /></td>
+  </tr>
+</table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
